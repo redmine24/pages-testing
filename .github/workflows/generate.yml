@@ -27,6 +27,8 @@ jobs:
 
       - name: genereate report
         run: |
+          git branch
+          git checkout gh-pages
           ts=$(date +%H-%M-%S)
           mkdir -p reports/${ts}
           touch reports/${ts}/.skip
