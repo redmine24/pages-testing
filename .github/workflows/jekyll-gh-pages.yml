@@ -33,7 +33,7 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Generate index.html
-        run: find . -ls > index.html
+        run: echo "<html><body><h1>`date`</h1><code>`find reports -ls`</code></body></html>" > index.html
 
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
