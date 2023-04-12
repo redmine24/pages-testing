@@ -30,8 +30,8 @@ jobs:
           ts=$(date +%H-%M-%S)
           mkdir -p reports/${ts}
           touch reports/${ts}/.skip
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.name test
+          git config user.email test@example.com
           git add .
           git commit -m "generated ${ts}"
           git push
