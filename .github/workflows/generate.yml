@@ -30,7 +30,7 @@ jobs:
 
       - name: genereate report
         run: |
-          ts=$(date %H-%M-%S)
+          ts=$(date +%H-%M-%S)
           mkdir -p reports/${ts}
           touch reports/${ts}/.skip
           git config user.name github-actions
