@@ -36,6 +36,6 @@ jobs:
     - uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: playwright-report
+        name: $GITHUB_WORKFLOW-$GITHUB_RUN_ID-$GITHUB_RUN_NUMBER
         path: playwright-report/
         retention-days: 30
