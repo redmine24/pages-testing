@@ -39,6 +39,6 @@ jobs:
     - uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: ${{ github.workflow	}}-${{ github.run_id }}-${{ github.run_number	}}
+        name: ${{ github.run_id }}-${{ github.run_number }}-${{ github.ref_name }}
         path: playwright-report/
         retention-days: 30
