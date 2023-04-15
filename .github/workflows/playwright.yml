@@ -17,8 +17,8 @@ jobs:
 
     - name: Cache playwright binaries
       uses: actions/cache@v3
-      key: npm-cache-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       with:
+        key: npm-cache-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
         path: |
           ./node_modules/
           ./playwright/.cache/
