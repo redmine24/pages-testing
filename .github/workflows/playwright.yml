@@ -5,6 +5,8 @@ on:
 #  pull_request:
 #    branches: [ main, master ]
 jobs:
+  env:
+    PLAYWRIGHT_BROWSERS_PATH: 0
   test:
     timeout-minutes: 5
     runs-on: ubuntu-latest
