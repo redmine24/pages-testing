@@ -7,3 +7,9 @@ node_modules/
 /playwright/.cache/
 # local 
 .DS_Store
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/playwright/.cache/
