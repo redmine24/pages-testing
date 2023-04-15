@@ -1,5 +1,7 @@
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
 name: update GitHub Page
+run-name: ${{ github.actor }} is learning GitHub Actions
+
 
 on:
   # Runs on pushes targeting the default branch
