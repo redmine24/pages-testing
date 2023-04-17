@@ -1,8 +1,5 @@
 name: debug
 description: 'Greet someone and record the time'
-inputs:
-  GITHUB_REPO:
-    required: true
 runs:
   using: 'node16'
   main: 'debug.js'

@@ -14,8 +14,8 @@ jobs:
       - name: try to use debug.js
         uses: ./.github/actions/debug
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPO: ${GITHUB_REPOSITORY}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repo: ${GITHUB_REPOSITORY}
 
       #- name: Download artifact
       #  id: download-artifact
