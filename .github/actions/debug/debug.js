@@ -23,7 +23,8 @@ async function run() {
 }
 
 try {
-	console.log(await run());
+	const all = await run();
+	console.log(all);
 } catch (error) {
 	core.setFailed(error.message);
 }
