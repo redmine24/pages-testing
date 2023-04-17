@@ -5,7 +5,7 @@ const { paginateRest } = require('@octokit/plugin-paginate-rest');
 
 const OctoPag = Octokit.plugin(paginateRest);
 
-function run() {
+async function run() {
 	const token = core.getInput("github_token", { required: true })
 	const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 	const octokit = new OctoPag({ auth: token })
