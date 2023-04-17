@@ -21,7 +21,7 @@ async function run() {
 }
 
 
-const data = await run();
+const data = run();
 console.log(data);
 
 	//core.setFailed(error.message);
