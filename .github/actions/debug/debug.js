@@ -10,7 +10,7 @@ async function run() {
 	const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 	const octokit = new OctoPag({ auth: token })
 
-	return await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
+	const data = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
 	  owner: owner,
 	  repo: repo,
 	  per_page: 100,
@@ -18,6 +18,7 @@ async function run() {
 		'X-GitHub-Api-Version': '2022-11-28'
 	  }
 	});
+	return data;
 }
 
 
