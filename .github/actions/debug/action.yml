@@ -3,7 +3,7 @@ description: 'Greet someone and record the time'
 inputs:
   repo:
     required: true
-    default: ${GITHUB_REPOSITORY}
+    default: ${{ env.GITHUB_REPOSITORY }}
 runs:
   using: 'node16'
   main: 'debug.js'
