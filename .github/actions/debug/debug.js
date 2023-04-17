@@ -7,7 +7,8 @@ const octokit = new Octokit({
 
 try {
 
-	const artifacts = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
+	// const artifacts = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
+	const artifacts = octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
 	  owner: 'OWNER',
 	  repo: 'REPO',
 	  headers: {
