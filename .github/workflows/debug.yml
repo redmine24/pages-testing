@@ -7,4 +7,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: try to use debug.js
-        uses: ./.github/actions/debug.yml # Uses an action in the root directory
+        uses: ./.github/actions/debug
