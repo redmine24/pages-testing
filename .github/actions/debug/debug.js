@@ -9,6 +9,8 @@ try {
 
 	// const artifacts = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
 	const [owner, repo] = core.getInput("repo", { required: true }).split("/")
+	console.log('owner: ' + owner + ', repo: ' + repo);
+
 	const artifacts = octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
 	  owner: 'OWNER',
 	  repo: 'REPO',
@@ -18,7 +20,6 @@ try {
 	});
 
 	console.log(artifacts);
-	console.log('owner: ' + owner + ', repo: ' + repo);
 
 } catch (error) {
 	core.setFailed(error.message);
