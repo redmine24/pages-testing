@@ -5,16 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v3
-      - name: try to use debug.js
-        uses: ./.github/actions/debug
+      - run: gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/redmine24/pages-testing/actions/artifacts
+      #- uses: actions/checkout@v3
+      #- name: try to use debug.js
+      #  uses: ./.github/actions/debug
 
-      - name: Download artifact
-        id: download-artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          #run_id: 4708605861
-          branch: "main"
+      #- name: Download artifact
+      #  id: download-artifact
+      #  uses: dawidd6/action-download-artifact@v2
+      #  with:
+      #    #run_id: 4708605861
+      #    branch: "main"
   # with:
   #   # Optional, GitHub token, a Personal Access Token with `public_repo` scope if needed
   #   # Required, if the artifact is from a different repo
