@@ -15,7 +15,7 @@ async function run() {
 		const artifacts = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
 		  owner: owner,
 		  repo: repo,
-		  per_page: 10,
+		  per_page: 100,
 		  headers: {
 			'X-GitHub-Api-Version': '2022-11-28'
 		  }
