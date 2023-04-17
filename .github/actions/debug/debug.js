@@ -11,9 +11,9 @@ async function run() {
 		console.log('owner: ' + owner + ', repo: ' + repo);
 
 		const octokit = new Octokit({ auth: process.env.INPUT_TOKEN })
-		const artifacts = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
-		  owner: 'OWNER',
-		  repo: 'REPO',
+		const artifacts = await octokit.request('GET /repos/'+ owner '/' +repo +'/actions/artifacts', {
+		  owner: owner,
+		  repo: repo,
 		  headers: {
 			'X-GitHub-Api-Version': '2022-11-28'
 		  }
