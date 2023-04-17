@@ -19,7 +19,7 @@ async function run() {
 		  }
 		});
 
-		console.log(artifacts);
+		console.log(JSON.stringify(artifacts));
 
 	} catch (error) {
 		core.setFailed(error.message);
