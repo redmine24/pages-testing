@@ -1,5 +1,14 @@
 name: debug
 description: 'Greet someone and record the time'
+inputs:
+  github_token:
+    description: GitHub token
+    required: false
+    default: ${{ github.token }}
+  repo:
+    description: Repository name with owner (like actions/checkout)
+    required: false
+    default: ${{ github.repository }}
 runs:
   using: 'node16'
   main: 'debug.js'
