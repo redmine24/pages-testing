@@ -10,7 +10,7 @@ async function run() {
 	const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 	const octokit = new OctoPag({ auth: token })
 
-	const data = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
+	let data = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
 	  owner: owner,
 	  repo: repo,
 	  per_page: 100,
