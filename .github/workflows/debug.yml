@@ -5,7 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - run: 'gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/redmine24/pages-testing/actions/artifacts'
+    - run: |
+        gh api -H "Accept: application/vnd.github+json" \
+         -H "X-GitHub-Api-Version: 2022-11-28" \
+         /repos/redmine24/pages-testing/actions/artifacts
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #- uses: actions/checkout@v3
