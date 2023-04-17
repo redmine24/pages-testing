@@ -8,7 +8,7 @@ const octokit = new Octokit({
 try {
 
 	// const artifacts = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
-	const [owner, repo] = core.getInput("repo", { required: true }).split("/")
+	const [owner, repo] = core.getInput("GITHUB_REPO", { required: true }).split("/")
 	console.log('owner: ' + owner + ', repo: ' + repo);
 
 	const artifacts = octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
