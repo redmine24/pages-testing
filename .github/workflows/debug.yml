@@ -6,4 +6,4 @@ jobs:
     name: A job to say hello
     steps:
       - name: try to use debug.js
-        uses: .github/actions/debug.yml # Uses an action in the root directory
+        uses: ./.github/actions/debug.yml # Uses an action in the root directory
