@@ -10,7 +10,7 @@ async function run() {
 
 		const token = core.getInput("github_token", { required: true })
 		const [owner, repo] = core.getInput("repo", { required: true }).split("/")
-		const octokit = new OckoPag({ auth: token })
+		const octokit = new OctoPag({ auth: token })
 
 		const artifacts = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
 		  owner: owner,
