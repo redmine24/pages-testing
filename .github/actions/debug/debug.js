@@ -22,7 +22,8 @@ async function run() {
 		}
 		);
 
-		console.log(JSON.stringify(artifacts));
+		//console.log(JSON.stringify(artifacts));
+		console.log(artifacts);
 
 	} catch (error) {
 		core.setFailed(error.message);
