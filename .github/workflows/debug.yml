@@ -13,7 +13,8 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          run_id: 4708605861
+          #run_id: 4708605861
+          branch: "main"
   # with:
   #   # Optional, GitHub token, a Personal Access Token with `public_repo` scope if needed
   #   # Required, if the artifact is from a different repo
