@@ -21,6 +21,7 @@ function run() {
 }
 
 
-console.log(run());
+const data = await run();
+console.log(data);
 
 	//core.setFailed(error.message);
