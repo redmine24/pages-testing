@@ -3,6 +3,7 @@ const { Octokit } = require("@octokit/core");
 const { paginateRest } = require('@octokit/plugin-paginate-rest');
 
 const token = core.getInput("github_token", { required: true })
+const filter = core.getInput("filter", { required: true })
 const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 
 const OctoPag = Octokit.plugin(paginateRest);
@@ -18,7 +19,7 @@ async function list_artifacts() {
 	});
 	artifacts.forEach( (data) => {
 			core.info(`==> found artifact: id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
-			if(data.expired !== true && data.name.indexOf('report-') == 0) {
+			if(data.expired !== true && data.name.match(filter) == 0) {
 				list.push(data);
 			}
 		}
