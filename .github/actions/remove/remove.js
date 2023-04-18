@@ -32,6 +32,9 @@ async function list_artifacts() {
 
 list_artifacts()
 .then (data => {
-	core.info(`==> got artifacts: ${data.length} items:${data}`);
+	core.info(`==> got artifacts: ${data.length} items:`);
+	data.forEach( (data) => {
+		core.info(`-> id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
+	})
 })
 .catch (error => {core.setFailed(error.message)});
