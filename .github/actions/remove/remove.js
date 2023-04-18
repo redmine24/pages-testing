@@ -34,7 +34,15 @@ list_artifacts()
 .then (data => {
 	core.info(`==> got artifacts: ${data.length} items:`);
 	data.forEach( (data) => {
-		core.info(`-> id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
+		core.info(` - deleted> id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
+		await octokit.request('DELETE /repos/'+owner+'/'+repo+'/actions/artifacts/'+${data.id}, {
+		  owner: owner,
+		  repo: repo,
+		  artifact_id: ${data.id},
+		  headers: {
+			'X-GitHub-Api-Version': '2022-11-28'
+		  }
+		});
 	})
 })
 .catch (error => {core.setFailed(error.message)});
