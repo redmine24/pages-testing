@@ -31,6 +31,6 @@ async function run() {
 
 run()
 .then (data => {
-	core.info(`==> got artifacts: ${data.length} items:${a}`);
+	core.info(`==> got artifacts: ${data.length} items:${data}`);
 })
 .catch (error => {core.setFailed(error.message)});
