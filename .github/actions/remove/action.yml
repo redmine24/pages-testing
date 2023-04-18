@@ -12,7 +12,7 @@ inputs:
   branch:
     description: Short name of the branch triggered by the delete action
     required: false
-    default: ${{ github.GITHUB_REF_NAME }}
+    default: ${{ github.event.ref }}
 runs:
   using: 'node16'
   main: 'remove.js'
