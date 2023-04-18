@@ -19,10 +19,10 @@ async function run() {
 	  }
 	});
 	artifacts.forEach(
-		(a) => {
-			core.info(`==> Artifact: ${a.id} expired:(${a.expired})`);
-			if(a.expired !== true) {
-				list.push(a);
+		(data) => {
+			core.info(`==> found artifacts: ${data.length} items:${data}`);
+			if(data.expired !== true) {
+				list.push(data);
 			}
 		}
 	);
