@@ -1,5 +1,5 @@
 name: list artifacts
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   list_artifacts:
