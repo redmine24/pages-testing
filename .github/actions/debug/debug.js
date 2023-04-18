@@ -20,7 +20,7 @@ async function get_artifacts() {
 	});
 	artifacts.forEach(
 		(data) => {
-			core.info(`==> found artifact: ${data.id} ${data.name} ${data.size} ${data.workflow_run.head_branch}`);
+			core.info(`==> found artifact: id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
 			if(data.expired !== true) {
 				list.push(data);
 			}
