@@ -9,6 +9,7 @@ const OctoPag = Octokit.plugin(paginateRest);
 const octokit = new OctoPag({ auth: token })
 
 async function run() {
+	const list = [];
 	const artifacts = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
 	  owner: owner,
 	  repo: repo,
@@ -20,6 +21,9 @@ async function run() {
 	artifacts.forEach(
 		(a) => {
 			core.info(`==> Artifact: ${a.id} expired:(${a.expired})`);
+			if(a.expired !== true) {
+				list.push(a);
+			}
 		}
 	);
 	return artifacts;
