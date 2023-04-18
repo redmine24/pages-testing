@@ -20,5 +20,5 @@ async function run() {
 }
 
 run()
-.then (data => {console.log(data)});
+.then (data => {console.log(data)})
 .catch (error => {core.setFailed(error.message)});
