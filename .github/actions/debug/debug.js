@@ -19,9 +19,6 @@ async function run() {
 	});
 }
 
-try {
-	run().then(data => console.log(data));
-} 
-catch (error) {
-	core.setFailed(error.message);
-}
+run()
+.then (data => {console.log(data)});
+.catch (error => {core.setFailed(error.message)});
