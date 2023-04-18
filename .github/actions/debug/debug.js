@@ -8,7 +8,7 @@ const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 const OctoPag = Octokit.plugin(paginateRest);
 const octokit = new OctoPag({ auth: token })
 
-async function run() {
+async function get_artifacts() {
 	const list = [];
 	const artifacts = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
 	  owner: owner,
@@ -20,7 +20,7 @@ async function run() {
 	});
 	artifacts.forEach(
 		(data) => {
-			core.info(`==> found artifact: ${data.id}`);
+			core.info(`==> found artifact: ${data.id} ${data.name} ${data.size} ${data.workflow_run.head_branch}`);
 			if(data.expired !== true) {
 				list.push(data);
 			}
@@ -29,7 +29,7 @@ async function run() {
 	return list;
 }
 
-run()
+get_artifacts()
 .then (data => {
 	core.info(`==> got artifacts: ${data.length} items:${data}`);
 })
