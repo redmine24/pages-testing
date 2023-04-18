@@ -19,7 +19,7 @@ async function run() {
 	});
 	artifacts.forEach(
 		(a) => {
-			core.info(`==> Artifact: ${a.id}`);
+			core.info(`==> Artifact: ${a.id} expired:(${a.expired})`);
 		}
 	);
 	return artifacts;
