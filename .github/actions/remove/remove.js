@@ -12,8 +12,8 @@ const octokit = new OctoPag({ auth: token })
 async function list_artifacts() {
 	const list = [];
 	const artifacts = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
-	  owner: owner,
-	  repo: repo,
+	  //owner: owner,
+	  //repo: repo,
 	  per_page: 100,
 	  headers: {
 		'X-GitHub-Api-Version': '2022-11-28'
@@ -36,9 +36,6 @@ list_artifacts()
 	data.forEach( (data) => {
 		core.info(` - deleted> id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
 		octokit.request('DELETE /repos/'+owner+'/'+repo+'/actions/artifacts/'+data.id, {
-		  //owner: owner,
-		  //repo: repo,
-		  //artifact_id: data.id,
 		  headers: {
 			'X-GitHub-Api-Version': '2022-11-28'
 		  }
