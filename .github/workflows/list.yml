@@ -1,3 +1,4 @@
+name: list artifacts
 on: [push]
 
 jobs:
