@@ -26,9 +26,11 @@ async function run() {
 			}
 		}
 	);
-	return artifacts;
+	return list;
 }
 
 run()
-.then (data => {console.log(data)})
+.then (data => {
+	core.info(`==> got artifacts: ${data.length} items:${a}`);
+})
 .catch (error => {core.setFailed(error.message)});
