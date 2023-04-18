@@ -18,10 +18,9 @@ async function list_artifacts() {
 		'X-GitHub-Api-Version': '2022-11-28'
 	  }
 	});
-	artifacts.forEach(
-		(data) => {
+	artifacts.forEach( (data) => {
 			core.info(`==> found artifact: id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
-			if(data.expired !== true && data.name.indexOf('report-') == 0)
+			if(data.expired !== true && data.name.indexOf('report-') == 0) {
 				list.push(data);
 			}
 		}
