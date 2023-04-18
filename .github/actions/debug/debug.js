@@ -20,7 +20,7 @@ async function run() {
 	});
 	artifacts.forEach(
 		(data) => {
-			core.info(`==> found artifacts: ${data.length} items:${data}`);
+			core.info(`==> found artifact: ${data.id}`);
 			if(data.expired !== true) {
 				list.push(data);
 			}
