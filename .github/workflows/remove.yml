@@ -2,6 +2,9 @@ name: remove artifacts
 run-name: Remove ${{ github.event.ref }} artifacts
 on: [delete]
 
+permissions:
+  actions:write
+
 jobs:
   remove_artifacts:
     runs-on: ubuntu-latest
