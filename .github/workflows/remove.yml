@@ -1,0 +1,13 @@
+name: remove artifacts
+run-name: Remove ${{ github.ref }} artifacts
+on: [delete]
+
+jobs:
+  remove_artifacts:
+    runs-on: ubuntu-latest
+    name: remove
+    if: ${{ github.ref != 'refs/heads/main' }} && ${{ github.event.ref_type == 'branch' }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: remove all useless artifacts
+        uses: ./.github/actions/remove
