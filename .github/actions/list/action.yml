@@ -1,5 +1,5 @@
 name: debug
-description: 'Greet someone and record the time'
+description: 'List all artifacts'
 inputs:
   github_token:
     description: GitHub token

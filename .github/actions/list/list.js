@@ -8,7 +8,7 @@ const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 const OctoPag = Octokit.plugin(paginateRest);
 const octokit = new OctoPag({ auth: token })
 
-async function get_artifacts() {
+async function list_artifacts() {
 	const list = [];
 	const artifacts = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
 	  owner: owner,
@@ -29,7 +29,7 @@ async function get_artifacts() {
 	return list;
 }
 
-get_artifacts()
+list_artifacts()
 .then (data => {
 	core.info(`==> got artifacts: ${data.length} items:${data}`);
 })
