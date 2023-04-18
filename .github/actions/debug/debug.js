@@ -9,16 +9,20 @@ const OctoPag = Octokit.plugin(paginateRest);
 const octokit = new OctoPag({ auth: token })
 
 async function run() {
-	for(const artifact of await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
+	const artifacts = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
 	  owner: owner,
 	  repo: repo,
 	  per_page: 100,
 	  headers: {
 		'X-GitHub-Api-Version': '2022-11-28'
 	  }
-	})) { 
-		core.info(`==> Artifact: ${artifact.id}`);
-	}
+	});
+	artifacts.forEach(
+		(a) => {
+			core.info(`==> Artifact: ${a.id}`);
+		}
+	);
+	return artifacts;
 }
 
 run()
