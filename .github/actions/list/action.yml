@@ -11,4 +11,4 @@ inputs:
     default: ${{ github.repository }}
 runs:
   using: 'node16'
-  main: 'debug.js'
+  main: 'list.js'
