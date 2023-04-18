@@ -3,7 +3,7 @@ run-name: Remove ${{ github.event.ref }} artifacts
 on: [delete]
 
 permissions:
-  actions:write
+  actions: write
 
 jobs:
   remove_artifacts:
