@@ -34,6 +34,9 @@ jobs:
           regex: "^playwright-report-.*$"
           path: github-pages
 
+      - name: DEBUG
+        run: find github-pages -ls
+
       - name: Generate index.html
         run: echo "<html><body><h1>`date`</h1><pre><code>`find github-pages -ls `</code></pre></body></html>" > ./github-pages/index.html
 
