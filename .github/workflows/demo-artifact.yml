@@ -11,7 +11,7 @@ jobs:
         run: date > data.bin
       - name: create artifact's name
         id: artifact
-        run: echo "::set-output name=id::playwright-report-$(date +'%d+%H+%M+%S')"
+        run: echo "id=playwright-report-$(date +'%d-%H-%M-%S')" >> $GITHUB_OUTPUT
       - name: upload artifact from bin file
         uses: actions/upload-artifact@v3
         with:
