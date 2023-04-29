@@ -30,7 +30,7 @@ async function list_artifacts() {
 async function download_artifact(id) {
 	core.info(`download_artifact(${id})`)
 	const artifact = await octokit.request('GET /repos/'+owner+'/'+repo+'/actions/artifacts/'+id+'/zip', { headers: { 'X-GitHub-Api-Version': '2022-11-28' } });
-	const zip = new AdmZip(Buffer.from(artifact.data as ArrayBuffer));
+	const zip = new AdmZip(Buffer.from(artifact.data));
 	zip.getEntries().forEach((e) => { core.info(`e ${e}`); });
 	const entries = zip.getEntries();
 	core.info(entries)
