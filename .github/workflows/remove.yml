@@ -1,0 +1,16 @@
+name: remove artifacts
+run-name: Remove ${{ github.event.ref }} artifacts
+on: [delete]
+
+permissions:
+  actions: write
+
+jobs:
+  remove_artifacts:
+    runs-on: ubuntu-latest
+    name: remove
+    if: ${{ github.event.ref != 'refs/heads/main' }} && ${{ github.event.ref_type == 'branch' }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: remove all depricated artifacts
+        uses: ./.github/actions/artifacts-remove-by-regex
