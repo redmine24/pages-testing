@@ -30,7 +30,8 @@ list_artifacts()
 		core.info(`==> got artifacts: ${data.length} items:`);
 		data.forEach( (data) => {
 			core.info(` - download> id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
-			//octokit.request('DELETE /repos/'+owner+'/'+repo+'/actions/artifacts/'+data.id, { headers: { 'X-GitHub-Api-Version': '2022-11-28' } });
+			let zip = octokit.request('GET /repos/'+owner+'/'+repo+'/actions/artifacts/'+data.id+'/zip', { headers: { 'X-GitHub-Api-Version': '2022-11-28' } });
+			core.info(zip);
 		})
 	} else { 
 		core.info('==> got empty artifactslist');
