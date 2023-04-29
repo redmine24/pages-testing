@@ -42,7 +42,7 @@ list_artifacts()
 		core.info(`==> got artifacts: ${data.length} items:`);
 		data.forEach( (data) => {
 			core.info(` - download> id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
-# TODO: is it ok catch in catch? 
+// TODO: is it ok catch in catch? 
 			download_artifact(data.id).then().catch (error => {core.setFailed(error.message)});
 		})
 	} else { 
