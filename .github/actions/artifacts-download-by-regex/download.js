@@ -13,16 +13,12 @@ async function list_artifacts() {
 	const list = [];
 	const artifacts = await octokit.paginate('GET /repos/'+owner+'/'+repo+'/actions/artifacts', {
 	  per_page: 100,
-	  headers: {
-		'X-GitHub-Api-Version': '2022-11-28'
-	  }
+	  headers: { 'X-GitHub-Api-Version': '2022-11-28' }
 	});
 	artifacts.forEach(
 		(data) => {
 			core.info(`==> found artifact: id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
-			if(data.name.match(regex)) {
-				list.push(data);
-			}
+			if(data.name.match(regex) && data.expired !== true) { list.push(data); }
 		}
 	);
 	return list;
@@ -34,11 +30,7 @@ list_artifacts()
 		core.info(`==> got artifacts: ${data.length} items:`);
 		data.forEach( (data) => {
 			core.info(` - download> id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
-			octokit.request('DELETE /repos/'+owner+'/'+repo+'/actions/artifacts/'+data.id, {
-			  headers: {
-				'X-GitHub-Api-Version': '2022-11-28'
-			  }
-			});
+			//octokit.request('DELETE /repos/'+owner+'/'+repo+'/actions/artifacts/'+data.id, { headers: { 'X-GitHub-Api-Version': '2022-11-28' } });
 		})
 	} else { 
 		core.info('==> got empty artifactslist');
