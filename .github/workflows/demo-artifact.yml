@@ -1,5 +1,5 @@
 name: demo
-run-name: Create demo artifact for ${{ github.event.ref }} branch
+run-name: Create demo artifact for ${{ github.ref_name }} branch
 
 on: [push]
 
