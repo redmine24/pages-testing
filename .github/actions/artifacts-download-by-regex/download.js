@@ -34,7 +34,7 @@ async function download_artifact(id) {
 	zip.getEntries().forEach((e) => { 
 		const b = e.getData();
 		console.log("File: " + e.entryName + ", length (bytes): " + b.length + ", contents: " + b.toString("utf-8"));
-	};
+	});
 }
 
 
