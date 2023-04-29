@@ -33,7 +33,7 @@ async function download_artifact(id) {
 	const entries = zip.getEntries();
 	for(let entry of entries) {
 		const buffer = entry.getData();
-		console.log("File: " + entry.entryName + ", length (bytes): " + buffer.length + ", contents: " + buffer.toString("utf-8"));
+		core.info("File: " + entry.entryName + ", length (bytes): " + buffer.length + ", contents: " + buffer.toString("utf-8"));
 	}
 }
 
