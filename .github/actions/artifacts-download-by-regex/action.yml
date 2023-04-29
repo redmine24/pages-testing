@@ -13,6 +13,9 @@ inputs:
     description: todo # TODO
     required: false
     default: "^playwright-report-.*$"
+  path:
+    description: download artifacts to this directory
+    required: true
 runs:
   using: 'node16'
   main: 'download.js'
