@@ -3,7 +3,7 @@ run-name: Create demo artifact for ${{ github.ref }} branch
 
 on: [push]
 
-concurrency: pages
+concurrency: artifacts-${{ github.ref }}
 
 jobs:
   demo:
