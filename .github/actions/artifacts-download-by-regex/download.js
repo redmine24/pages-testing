@@ -30,8 +30,9 @@ list_artifacts()
 		core.info(`==> got artifacts: ${data.length} items:`);
 		data.forEach( (data) => {
 			core.info(` - download> id: ${data.id} name: ${data.name} size: ${data.size_in_bytes} branch: ${data.workflow_run.head_branch} expired: ${data.expired}`);
-			let zip = octokit.request('GET /repos/'+owner+'/'+repo+'/actions/artifacts/'+data.id+'/zip', { headers: { 'X-GitHub-Api-Version': '2022-11-28' } });
-			const entries = zip.getEntries();
+			let artifact = await octokit.request('GET /repos/'+owner+'/'+repo+'/actions/artifacts/'+data.id+'/zip', { headers: { 'X-GitHub-Api-Version': '2022-11-28' } });
+			let zip = new AdmZip(artifact.data);
+			let entries = zip.getEntries();
 			for(let entry of entries) {
 				const buffer = entry.getData();
 				console.log("File: " + entry.entryName + ", length (bytes): " + buffer.length + ", contents: " + buffer.toString("utf-8"));
