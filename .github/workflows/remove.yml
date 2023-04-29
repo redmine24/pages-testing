@@ -1,9 +1,12 @@
 name: remove artifacts
 run-name: Remove ${{ github.event.ref }} artifacts
-on: [delete]
+on: 
+  delete:
 
 permissions:
   actions: write
+
+concurrency: branch-${{ github.event.ref }}
 
 jobs:
   remove_artifacts:

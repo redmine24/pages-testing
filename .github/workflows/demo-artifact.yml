@@ -1,9 +1,11 @@
-name: generate artifact
+name: demo
 
 on: [push]
 
+concurrency: branch-${{ github.event.ref }}
+
 jobs:
-  generate:
+  demo:
     runs-on: ubuntu-latest
     if: ${{ github.event.ref != 'refs/heads/main' }}
     steps:
