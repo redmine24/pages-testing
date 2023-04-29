@@ -1,0 +1,21 @@
+name: generate artifact
+
+on: [push]
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.ref != 'refs/heads/main' }}
+    steps:
+      - name: create artifact's file
+        run: date > data.bin
+      - name: create artifact's name
+        id: artifact
+        run: echo "::set-output name=id::playwright-report-$(date +'%d+%H+%M+%S')"
+      - name: upload artifact from bin file
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.artifact.outputs.id }}
+          path: data.bin
+
+  

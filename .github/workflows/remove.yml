@@ -15,4 +15,4 @@ jobs:
       - name: remove all depricated artifacts
         uses: ./.github/actions/artifacts-remove-by-regex
         with:
-          regex: "^report-.*$"
+          regex: "^playwright-report-.*$"
