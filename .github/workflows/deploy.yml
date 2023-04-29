@@ -26,7 +26,7 @@ jobs:
 
 #TODO: define github-pages as variable ?
       - name: Generate index.html
-        run: mkdir ./github-pages && echo "<html><body><h1>`date`</h1><code>`ls -alFG`</code></body></html>" > ./github-pages/index.html
+        run: mkdir ./github-pages && echo "<html><body><h1>`date`</h1><pre><code>`find . -ls`</code></pre></body></html>" > ./github-pages/index.html
 
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
