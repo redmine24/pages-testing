@@ -33,7 +33,9 @@ async function download_artifact(id) {
 	const zip = new AdmZip(artifact.data);
 	core.info(zip)
 	const entries = zip.getEntries();
+	core.info(entries)
 	for(let entry of entries) {
+		core.info(entry)
 		const buffer = entry.getData();
 		core.info("File: " + entry.entryName + ", length (bytes): " + buffer.length + ", contents: " + buffer.toString("utf-8"));
 	}
