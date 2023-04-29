@@ -4,16 +4,19 @@ name: deploy GitHub Page
 # run-name: ${{ github.actor }} is learning GitHub Actions
 
 
-on: [workflow_dispatch]
-#  push:
-#    branches: 
-#      - main
+on: 
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["remove artifacts"]
+    types: [completed]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency: pages
 
 jobs:
   build:

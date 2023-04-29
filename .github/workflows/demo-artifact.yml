@@ -2,7 +2,7 @@ name: demo
 
 on: [push]
 
-concurrency: branch-${{ github.event.ref }}
+concurrency: pages
 
 jobs:
   demo:

@@ -6,7 +6,7 @@ on:
 permissions:
   actions: write
 
-concurrency: branch-${{ github.event.ref }}
+concurrency: pages
 
 jobs:
   remove_artifacts:
