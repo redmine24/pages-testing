@@ -29,7 +29,7 @@ jobs:
         run: mkdir ./github-pages
 
       - name: download artifacts by regex
-        uses: ./.github/actions/artifacts-download-by-regex
+        uses: redmine24/download-artifacts-via-regex@dev
         with:
           regex: "^playwright-report-.*$"
           path: github-pages
@@ -46,6 +46,7 @@ jobs:
           source: ./github-pages
           destination: ./deploy-data
 
+#TODO: name gh-pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
