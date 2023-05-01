@@ -1,9 +1,9 @@
 name: demo
-run-name: Create demo artifact for ${{ github.ref_name }} branch. Debug artifacts-${{ github.event.ref }}
+run-name: Create demo artifact for ${{ github.ref_name }} branch. Debug artifacts-${{ github.event.ref_name }}
 
 on: [push]
 
-concurrency: artifacts-${{ github.event.ref }}
+concurrency: artifacts-${{ github.event.ref_name }}
 
 jobs:
   demo:
