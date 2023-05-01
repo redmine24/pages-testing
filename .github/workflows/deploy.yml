@@ -33,7 +33,7 @@ jobs:
         with:
           regex: "^playwright-report-.*$"
           path: github-pages
-          metadata: github-pages/testMkDir/artifacts.json
+          metadata: github-pages/artifacts.json
 
       - name: DEBUG
         run: find github-pages -ls
