@@ -32,8 +32,8 @@ jobs:
         uses: redmine24/download-artifacts-via-regex@dev
         with:
           regex: "^playwright-report-.*$"
-          path: github-pages
-          metadata: github-pages/a/b/../../d/e/d/f/e/d/c/artifacts.json
+          download_path: github-pages
+          artifacts_json_metadata: report.json
 
       - name: DEBUG
         run: find github-pages -ls
