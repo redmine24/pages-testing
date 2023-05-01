@@ -1,5 +1,5 @@
 name: remove artifacts
-run-name: Remove ${{ github.event.ref }} artifacts
+run-name: Remove ${{ github.event.ref }} artifacts. Debug: artifacts-${{ github.event.ref }}
 on: 
   delete:
 
